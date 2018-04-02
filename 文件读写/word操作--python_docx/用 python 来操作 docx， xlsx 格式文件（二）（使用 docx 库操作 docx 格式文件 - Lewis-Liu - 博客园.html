@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://www.cnblogs.com/ontheway703/p/5266041.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/bundle-SimpleMemory.css">
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/bundle-SimpleMemory-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/ontheway703/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/ontheway703/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/ontheway703/wlwmanifest.xml">
+<script src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/hm.js"></script><script src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/hm.js"></script><script src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/hm.js"></script><script src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/hm.js"></script><script src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/hm.js"></script><script async="" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/analytics.js"></script><script type="text/javascript" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/encoder.js"></script><script src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'ontheway703', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/blog-common.js" type="text/javascript"></script>
+<style type="text/css">
+.c_ad_block,[id^="div-gpt-ad-"],#ibanner��#banner_right,[id^="ad_b"],#banner_right,[id^="cnblogs_a"],[id^="cnblogs_b"],#ad_right_text {display:none!important;display:none}[id="bb9c190068b8405587e5006f905e790c"]{display:none;position:absolute;top:-1000000px;visibility:hidden}</style>
+<script language="javascript" type="text/javascript" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/35ff706fd57d11c141cdefcd58d6562b.js" charset="gb2312"></script><script id="__EF0D49F1DA55F3D3C2CA27010025F7A9" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/a.js"></script><script type="text/javascript">
+hQGHuMEAyLn('[id="bb9c190068b8405587e5006f905e790c"]');</script><script type="text/javascript" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/YNoteClipper.js" charset="utf-8"></script><script type="text/javascript" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/YNoteClipper(1).js" charset="utf-8"></script><script type="text/javascript" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/YNoteClipper(2).js" charset="utf-8"></script><script type="text/javascript" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/YNoteClipper(3).js" charset="utf-8"></script><script type="text/javascript" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/YNoteClipper(4).js" charset="utf-8"></script></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/ontheway703/"><img id="blogLogo" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/ontheway703/">Hello, there</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/ontheway703/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Lewis-Liu">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/ontheway703/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/ontheway703/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 6&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 1</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/ontheway703/p/5266041.html">用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>&nbsp;</p>
+<p><span style="font-size: 16px;"><strong>docx 库</strong></span></p>
+<p><span style="font-size: 16px;"><strong>文章结构：</strong></span></p>
+<p>　　一、docx 基本用，创建 docx 文件并添加数据</p>
+<p>　　二、深入理解文本格式（format），并设置所格式属性（attribute）</p>
+<p>　　三、深入理解样式（styles），以及如何运用样式</p>
+<p>　　四、常用样式（style）示例</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;"><strong>一、docx基本用法，创建docx 文件并添加数据</strong></span></p>
+<p>　　官方文档：https://python-docx.readthedocs.org/en/latest/</p>
+<p>　　docx&nbsp;可以操作 doxc 格式文件</p>
+<p>　　linux 安装&nbsp;sudo pip install python_docx&nbsp;（不要安装错了，python_docx 是新版本，如果只是安装 docx 有些 API 会不匹配）</p>
+<p>　　windows 安装&nbsp;pip install python_docx</p>
+<p>　　基本用法：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">#</span><span style="color: #008000;">!/usr/bin/env python</span>
+<span style="color: #008080;"> 2</span> <span style="color: #008000;">#</span><span style="color: #008000;">coding: utf-8</span>
+<span style="color: #008080;"> 3</span> 
+<span style="color: #008080;"> 4</span> <span style="color: #0000ff;">from</span> docx <span style="color: #0000ff;">import</span><span style="color: #000000;"> Document
+</span><span style="color: #008080;"> 5</span> <span style="color: #0000ff;">from</span> docx.shared <span style="color: #0000ff;">import</span><span style="color: #000000;"> Inches
+</span><span style="color: #008080;"> 6</span> 
+<span style="color: #008080;"> 7</span> <span style="color: #008000;">#</span><span style="color: #008000;">创建 Document 对象，相当于打开一个 word 文档</span>
+<span style="color: #008080;"> 8</span> document =<span style="color: #000000;"> Document()
+</span><span style="color: #008080;"> 9</span> 
+<span style="color: #008080;">10</span> <span style="color: #008000;">#</span><span style="color: #008000;">向文档中添加一个标题，标题级别设置为0级</span>
+<span style="color: #008080;">11</span> document.add_heading(<span style="color: #800000;">'</span><span style="color: #800000;">This is title</span><span style="color: #800000;">'</span>, level=<span style="color: #000000;">0)
+</span><span style="color: #008080;">12</span> 
+<span style="color: #008080;">13</span> <span style="color: #008000;">#</span><span style="color: #008000;">向文档中添加一个段落，并将段落引用赋给变量 p</span>
+<span style="color: #008080;">14</span> <span style="color: #008000;">#</span><span style="color: #008000;">使用 add_run 方法追加字段，并设置格式</span>
+<span style="color: #008080;">15</span> p = document.add_paragraph(<span style="color: #800000;">'</span><span style="color: #800000;">This is paragraph</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+</span><span style="color: #008080;">16</span> p.add_run(<span style="color: #800000;">'</span><span style="color: #800000;">bold</span><span style="color: #800000;">'</span>).bold =<span style="color: #000000;"> True
+</span><span style="color: #008080;">17</span> p.add_run(<span style="color: #800000;">'</span><span style="color: #800000;"> and some </span><span style="color: #800000;">'</span><span style="color: #000000;">)
+</span><span style="color: #008080;">18</span> p.add_run(<span style="color: #800000;">'</span><span style="color: #800000;">italic.</span><span style="color: #800000;">'</span>).italic =<span style="color: #000000;"> True
+</span><span style="color: #008080;">19</span> 
+<span style="color: #008080;">20</span> <span style="color: #008000;">#</span><span style="color: #008000;">添加标题和段落，采用不同的形式</span>
+<span style="color: #008080;">21</span> document.add_heading(<span style="color: #800000;">'</span><span style="color: #800000;">This is Heading, level 1</span><span style="color: #800000;">'</span>, level=1<span style="color: #000000;">)
+</span><span style="color: #008080;">22</span> document.add_paragraph(<span style="color: #800000;">'</span><span style="color: #800000;">Intese quote</span><span style="color: #800000;">'</span>,style=<span style="color: #800000;">"</span><span style="color: #800000;">Intense Quote</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+</span><span style="color: #008080;">23</span> document.add_paragraph(<span style="color: #800000;">'</span><span style="color: #800000;">first item in unordered list</span><span style="color: #800000;">'</span>, style=<span style="color: #800000;">'</span><span style="color: #800000;">List Bullet</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+</span><span style="color: #008080;">24</span> document.add_paragraph(<span style="color: #800000;">'</span><span style="color: #800000;">first item in ordered list</span><span style="color: #800000;">'</span>, style=<span style="color: #800000;">'</span><span style="color: #800000;">List Number</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+</span><span style="color: #008080;">25</span> 
+<span style="color: #008080;">26</span> <span style="color: #008000;">#</span><span style="color: #008000;">添加图片，设置图片大小</span>
+<span style="color: #008080;">27</span> document.add_picture(r<span style="color: #800000;">"</span><span style="color: #800000;">D:\picture\a.jpg</span><span style="color: #800000;">"</span>, width=Inches(2.25<span style="color: #000000;">))
+</span><span style="color: #008080;">28</span> 
+<span style="color: #008080;">29</span> <span style="color: #008000;">#</span><span style="color: #008000;">添加表格，填入表格内容</span>
+<span style="color: #008080;">30</span> table = document.add_table(rows=2, cols=2<span style="color: #000000;">)
+</span><span style="color: #008080;">31</span> table.cell(0,0).text = <span style="color: #800000;">"</span><span style="color: #800000;">cell_00</span><span style="color: #800000;">"</span>
+<span style="color: #008080;">32</span> table.cell(0,1).text = <span style="color: #800000;">"</span><span style="color: #800000;">cell_01</span><span style="color: #800000;">"</span>
+<span style="color: #008080;">33</span> table.cell(1,0).text = <span style="color: #800000;">"</span><span style="color: #800000;">cell_10</span><span style="color: #800000;">"</span>
+<span style="color: #008080;">34</span> table.cell(1,1).text = <span style="color: #800000;">"</span><span style="color: #800000;">cell_11</span><span style="color: #800000;">"</span>
+<span style="color: #008080;">35</span> 
+<span style="color: #008080;">36</span> <span style="color: #008000;">#</span><span style="color: #008000;">保存文本</span>
+<span style="color: #008080;">37</span> document.save(<span style="color: #800000;">'</span><span style="color: #800000;">demo.docx</span><span style="color: #800000;">'</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;　　效果展示：</p>
+<p>&lt;-------------------- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;start&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; --------------------&gt;</p>
+<p><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/842654-20160314131805756-541228923.png" alt="" width="493" height="468"></p>
+<p>&lt;-------------------- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;end &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--------------------&gt;</p>
+<p>&nbsp;</p>
+<p><strong><span style="font-size: 16px;">二、深入理解文本格式（format），并设置所格式属性（attribute）</span></strong></p>
+<p>　　根据官方文档所述，word 中主要有两种用文本格式等级：块等级（block-level）和内联等级（inline-level）</p>
+<p>　　word 中大部分内容都是由这两种等级的对象组成的</p>
+<p>　　（其他的诸如眉页、引脚等，docx 库的作者还在开发中）</p>
+<p>　　<strong>块等级（block-level）</strong>：</p>
+<p>　　　　段落是 word 文件中的主要块对象（block-level object）</p>
+<p>　　　　块等级项（block-level item）主要任务是将文本格式从左边界向右边界展示（flows）；\</p>
+<p>　　　　对于段落而言，边界就是分段标识，或者是文本的列边界</p>
+<p>　　　　列表（table）也是块对象（block-level object）</p>
+<p>　　<strong>内联等级（inline-level）</strong>：　</p>
+<p>　　　　内联对象（inline-level object）是块对象（block-level object）的组成部分</p>
+<p>　　　　块对象的所有内容都包含在内联对象中，一个块对象由一个或多个内联对象组成</p>
+<p>　　　　run 是常用的内联对象，例如：</p>
+<div class="cnblogs_code">
+<pre>         p = document.add_paragraph(<span style="color: #800000;">'</span><span style="color: #800000;">This is paragraph</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+         p.add_run(</span><span style="color: #800000;">'</span><span style="color: #800000;">bold</span><span style="color: #800000;">'</span>).bold =<span style="color: #000000;"> True
+         p.add_run(</span><span style="color: #800000;">'</span><span style="color: #800000;"> and some </span><span style="color: #800000;">'</span><span style="color: #000000;">)
+         p.add_run(</span><span style="color: #800000;">'</span><span style="color: #800000;">italic.</span><span style="color: #800000;">'</span>).italic = True</pre>
+</div>
+<p>　　　　<span style="line-height: 1.5;">这个例子中一个段落（块对象）包含三个 run（内联对象），每一个 run 都设置有不同属性</span></p>
+<p><span style="line-height: 1.5;">　　<strong>块等级，及其属性</strong></span></p>
+<p><span style="line-height: 1.5;"><strong>　　　　</strong>块对象一般包括：段落（paragraph）、图片（inline picture）、表（table）、标题（heading）、\</span></p>
+<p><span style="line-height: 1.5;">　　　　有序列表（numbered lists）、无序列表（bullets&nbsp;lists）</span></p>
+<p><span style="line-height: 1.5;">　　　　块对象的属性指定了块对象所在的位置，例如缩进、段间距离</span></p>
+<p><span style="line-height: 1.5;">　　　　常用属性：<br></span></p>
+<p><span style="line-height: 1.5;">　　　　　　alignment，水平对齐</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">from</span> docx.enum.text <span style="color: #0000ff;">import</span><span style="color: #000000;"> WD_ALIGN_PARAGRAPH
+
+paragraph </span>= document.add_paragraph(<span style="color: #800000;">"</span><span style="color: #800000;">hello</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+paragraph_format </span>=<span style="color: #000000;"> paragraph.paragraph_format
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">设置段落水平右对齐</span>
+paragraph_format.alignment =<span style="color: #000000;"> WD_ALIGN_PARAGRAPH.CENTER
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">WD_ALIGN_PARAGRAPH 存储了多种对齐格式，例如：</span><span style="color: #008000;">
+#</span><span style="color: #008000;">WD_ALIGN_PARAGRAPH.LEFT，左对齐；WD_ALIGN_PARAGRAPH.RIGHT，右对齐</span><span style="color: #008000;">
+#</span><span style="color: #008000;">更多参见https://python-docx.readthedocs.org/en/latest/api/enum/WdAlignParagraph.html#wdparagraphalignment</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　　　　　indent，缩进</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">from</span> docx.shared <span style="color: #0000ff;">import</span><span style="color: #000000;"> Inches
+</span><span style="color: #0000ff;">from</span> docx.shared <span style="color: #0000ff;">import</span><span style="color: #000000;"> Pt<br><br></span><span style="color: #008000;">#</span><span style="color: #008000;">设置段落从左开始缩进，使用Inches来衡量</span>
+paragraph_format.left_indent = Inches(0.5<span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">设置段落从右开始缩进，使用Pt来衡量</span>
+paragraph_format.right_indent = Pt(20<span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">设置段落第一行缩进，可以与上两个缩进叠加</span>
+paragraph_format.first_line_indent = Inches(0.5)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="line-height: 1.5;">　　　　　　space，行间距</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">from</span> docx.shared <span style="color: #0000ff;">import</span><span style="color: #000000;"> Pt<br><br></span><span style="color: #008000;">#</span><span style="color: #008000;">设置与上一段间隔 Pt（5）</span>
+paragraph.space_after = Pt(5<span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">设置与下一段间隔 Pt（10）</span>
+paragraph.space_before = Pt(10)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="line-height: 1.5;">　　　　　　其他熟悉如字间距、页码等属性，参见文档：https://python-docx.readthedocs.org/en/latest/user/text.html</span></p>
+<p><span style="line-height: 1.5;">　　<strong>内联等级，及其属性</strong>　　</span></p>
+<p><span style="line-height: 1.5;">　　　　内联对象一般包括：文字、句子、段落</span></p>
+<p><span style="line-height: 1.5;">　　　　内联对象的属性指定了字体，例如粗体（bold）、斜体（italic）、大小（size）等等</span></p>
+<p><span style="line-height: 1.5;">　　　　常用属性：</span></p>
+<p><span style="line-height: 1.5;">　　　　　　name and size</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>document =<span style="color: #000000;"> Document()
+paragraph </span>=<span style="color: #000000;"> document.add_paragraph()
+
+run </span>= paragraph.add_run(<span style="color: #800000;">"</span><span style="color: #800000;">hellohellohello</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+font </span>=<span style="color: #000000;"> run.font
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">设置字体样式</span>
+font.name = <span style="color: #800000;">'</span><span style="color: #800000;">Calibri</span><span style="color: #800000;">'</span>
+<span style="color: #008000;">#</span><span style="color: #008000;">设置字体大小</span>
+font.size = Pt(55)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="line-height: 1.5;">　　　　　　bold 、underline and underline</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;">设置为斜体</span>
+font.italic =<span style="color: #000000;"> True
+</span><span style="color: #008000;">#</span><span style="color: #008000;">不设置下划线</span>
+font.underline =<span style="color: #000000;"> False
+</span><span style="color: #008000;">#</span><span style="color: #008000;">设置粗体为继承上一个字体的格式</span>
+font.bold =<span style="color: #000000;"> None
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">这一类属性，每个有三种状态</span><span style="color: #008000;">
+#</span><span style="color: #008000;">True 为使用属性；False 为不使用属性；None 默认属性继承自上一个字体</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;">此外，underline 属性还可以设置值，例如</span>
+font.underline =<span style="color: #000000;"> WD_UNDERLINE.DOT_DASH
+</span><span style="color: #008000;">#</span><span style="color: #008000;">更多选项参见http://python-docx.readthedocs.org/en/latest/api/enum/WdUnderline.html#wdunderline</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="line-height: 1.5;">　　　　　　color</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;">以RGB方式设置颜色</span>
+<span style="color: #0000ff;">from</span> docx.shared <span style="color: #0000ff;">import</span><span style="color: #000000;"> RGBColor
+font.color.rgb </span>= RGBColor(0x42, 0x24, 0xE9<span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">使用内建主题设置颜色</span><span style="color: #008000;">
+#</span><span style="color: #008000;">详细说明参见https://python-docx.readthedocs.org/en/latest/api/enum/MsoThemeColorIndex.html#msothemecolorindex</span>
+<span style="color: #0000ff;">from</span> docx.enum.dml <span style="color: #0000ff;">import</span><span style="color: #000000;"> MSO_THEME_COLOR
+font.color.theme_color </span>= MSO_THEME_COLOR.ACCENT_1</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;"><strong>三、深入理解样式（styles），以及如何运用样式</strong></span></p>
+<p>　　在 word 中，样式包括：段落样式(paragraph styles)、字符样式(character styles)、表样式(table styles)、列表样式(numbering styles)</p>
+<p>　　样式类似于前端开发的 CSS，一处定义，处处使用</p>
+<p>　　docx 库内的 styles 样式不包含 word 中全部的样式，有一些还在开发中，但是基本够用</p>
+<p>　　Document 的属性 styles，包含了所有 docx 提供的可用样式　　</p>
+<p>　　<strong>选取段落可用样式</strong></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">#</span><span style="color: #008000;">显示所有段落样式</span>
+<span style="color: #0000ff;">from</span> docx.enum.style <span style="color: #0000ff;">import</span><span style="color: #000000;"> WD_STYLE_TYPE
+styles </span>=<span style="color: #000000;"> document.styles
+
+paragraph_styles </span>=<span style="color: #000000;"> [
+     s </span><span style="color: #0000ff;">for</span> s <span style="color: #0000ff;">in</span> styles <span style="color: #0000ff;">if</span> s.type ==<span style="color: #000000;"> WD_STYLE_TYPE.PARAGRAPH
+ ]
+
+</span><span style="color: #0000ff;">for</span> style <span style="color: #0000ff;">in</span><span style="color: #000000;"> paragraph_styles:
+    </span><span style="color: #0000ff;">print</span><span style="color: #000000;">(style.name)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">styles 为 Document 的属性，style 为段落的属性</span><span style="color: #008000;">
+#</span><span style="color: #008000;">除了段落（paragraph），还有 run，表（table）有 style 属性</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　<strong>段落设置样式</strong></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>document =<span style="color: #000000;"> Document()
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">从styles中选取样式</span>
+paragraph =<span style="color: #000000;"> document.add_paragraph()
+paragraph.style </span>= document.styles[<span style="color: #800000;">'</span><span style="color: #800000;">Heading 1</span><span style="color: #800000;">'</span><span style="color: #000000;">]
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">用样式名称直接赋值</span>
+paragraph2 =<span style="color: #000000;"> document.add_paragraph()
+paragraph2.style </span>= <span style="color: #800000;">'</span><span style="color: #800000;">List Bullet</span><span style="color: #800000;">'</span>
+
+<span style="color: #008000;">#</span><span style="color: #008000;">在创建段落时赋值</span>
+paragraph = document.add_paragraph(style=<span style="color: #800000;">'</span><span style="color: #800000;">Body Text</span><span style="color: #800000;">'</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;　　<strong>定义样式（style）中的字符格式（character format)</strong></p>
+<p>　　　　定义样式中的字符格式后，所有运用此样式的段落都有相应的字符格式</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>document =<span style="color: #000000;"> Document()
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">从样式库中选取 'Normal' 样式，并提取 'Normal' 样式的字符属性</span>
+style = document.styles[<span style="color: #800000;">'</span><span style="color: #800000;">Normal</span><span style="color: #800000;">'</span><span style="color: #000000;">]
+font </span>=<span style="color: #000000;"> style.font
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">设置样式中的字符属性 ，操作方法和上面改变内联对象属性方法一致</span>
+font.name = <span style="color: #800000;">"</span><span style="color: #800000;">Microsoft YaHei UI</span><span style="color: #800000;">"</span><span style="color: #000000;">
+font.size </span>= Pt(50<span style="color: #000000;">)
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">将设置好字符属性的样式运用到段落中</span>
+p = document.add_paragraph(<span style="color: #800000;">"</span><span style="color: #800000;">change font attribution</span><span style="color: #800000;">"</span>, style = <span style="color: #800000;">'</span><span style="color: #800000;">Normal</span><span style="color: #800000;">'</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;　　<strong>定义样式（style）中的段落格式（paragraph format）</strong></p>
+<p>　　　　定义样式中的段落格式后，所有运用此样式的段落都有相应的段落格式</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>document =<span style="color: #000000;"> Document()
+styles </span>=<span style="color: #000000;"> document.styles
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">选取 style，并设置 style 中的段落格式</span>
+style = styles[<span style="color: #800000;">'</span><span style="color: #800000;">Heading 2</span><span style="color: #800000;">'</span><span style="color: #000000;">]
+para_format </span>=<span style="color: #000000;"> style.paragraph_format
+para_format.left_indent </span>= Pt(20<span style="color: #000000;">)
+para_format.widow_control </span>=<span style="color: #000000;"> True
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">将设置好段落格式的 style 运用到段落中</span>
+p = document.add_paragraph(<span style="color: #800000;">'</span><span style="color: #800000;">This is Heading, level 1</span><span style="color: #800000;">'</span>, style = style)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;　　<strong>简单总结</strong></p>
+<p>　　　　文章第二部分直接设置段落的格式（paragraph.format），字符的格式（run.font）</p>
+<p>　　　　在这一部分，运用了 style 对象，统一设置了段落格式、字符格式</p>
+<p>　　　　一旦 style 对象设置好了以后，可以多次反复利用</p>
+<p>　　　　style 对象是从文件对象中提取（document.styles）的，docx 提供的 Style 类对象</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 16px;"><strong>四、常用样式（style）示例</strong></span></p>
+<p>　　段落样式</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">from</span> docx.enum.style <span style="color: #0000ff;">import</span><span style="color: #000000;"> WD_STYLE_TYPE
+</span><span style="color: #0000ff;">from</span> docx <span style="color: #0000ff;">import</span> *<span style="color: #000000;">
+
+document </span>=<span style="color: #000000;"> Document()
+styles </span>=<span style="color: #000000;"> document.styles
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">生成所有段落样式</span>
+<span style="color: #0000ff;">for</span> s <span style="color: #0000ff;">in</span><span style="color: #000000;"> styles:
+    </span><span style="color: #0000ff;">if</span> s.type ==<span style="color: #000000;"> WD_STYLE_TYPE.PARAGRAPH:
+        document.add_paragraph(</span><span style="color: #800000;">'</span><span style="color: #800000;">Paragraph style is : </span><span style="color: #800000;">'</span>+ s.name, style =<span style="color: #000000;"> s)
+
+document.save(</span><span style="color: #800000;">'para_style</span><span style="color: #800000;">.docx</span><span style="color: #800000;">'</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　字符样式</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">from</span> docx.enum.style <span style="color: #0000ff;">import</span><span style="color: #000000;"> WD_STYLE_TYPE
+</span><span style="color: #0000ff;">from</span> docx <span style="color: #0000ff;">import</span> *<span style="color: #000000;">
+
+document </span>=<span style="color: #000000;"> Document()
+styles </span>=<span style="color: #000000;"> document.styles
+para </span>=<span style="color: #000000;"> document.add_paragraph()
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">生成所有字符样式</span>
+<span style="color: #0000ff;">for</span> s <span style="color: #0000ff;">in</span><span style="color: #000000;"> styles:
+    </span><span style="color: #0000ff;">if</span> s.type ==<span style="color: #000000;"> WD_STYLE_TYPE.CHARACTER:
+        run </span>= para.add_run(<span style="color: #800000;">"</span><span style="color: #800000;">Character style is:  </span><span style="color: #800000;">"</span>+s.name+<span style="color: #800000;">"</span><span style="color: #800000;">\n</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+        run.style </span>=<span style="color: #000000;"> s
+
+document.save(</span><span style="color: #800000;">'</span><span style="color: #800000;">character_style.docx</span><span style="color: #800000;">'</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　表格样式</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">from</span> docx.enum.style <span style="color: #0000ff;">import</span><span style="color: #000000;"> WD_STYLE_TYPE
+</span><span style="color: #0000ff;">from</span> docx <span style="color: #0000ff;">import</span> *<span style="color: #000000;">
+
+document </span>=<span style="color: #000000;"> Document()
+styles </span>=<span style="color: #000000;"> document.styles
+
+</span><span style="color: #008000;">#</span><span style="color: #008000;">生成所有表样式</span>
+<span style="color: #0000ff;">for</span> s <span style="color: #0000ff;">in</span><span style="color: #000000;"> styles:
+    </span><span style="color: #0000ff;">if</span> s.type ==<span style="color: #000000;"> WD_STYLE_TYPE.TABLE:
+        document.add_paragraph(</span><span style="color: #800000;">"</span><span style="color: #800000;">Table style is :  </span><span style="color: #800000;">"</span>+<span style="color: #000000;"> s.name)
+        document.add_table(</span>3,3, style =<span style="color: #000000;"> s)
+        document.add_paragraph(</span><span style="color: #800000;">"</span><span style="color: #800000;">\n</span><span style="color: #800000;">"</span><span style="color: #000000;">)
+
+document.save(</span><span style="color: #800000;">'</span><span style="color: #800000;">demo2.docx</span><span style="color: #800000;">'</span>)</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(5266041,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;b7e9b5b7-0c91-e511-9fc1-ac853d9f53cc&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/ontheway703/" target="_blank"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/20160315144257.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/ontheway703/">Lewis-Liu</a><br>
+            <a href="http://home.cnblogs.com/u/ontheway703/followees">关注 - 0</a><br>
+            <a href="http://home.cnblogs.com/u/ontheway703/followers">粉丝 - 0</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;b7e9b5b7-0c91-e511-9fc1-ac853d9f53cc&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(5266041,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">1</span>
+    </div>
+    <div class="buryit" onclick="votePost(5266041,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/ontheway703/p/5264517.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/ontheway703/p/5264517.html" title="发布于2016-03-11 10:15">用 python 来操作 docx， xlsx 格式文件（一）（使用 xlsxwriter 库操作xlsx格式文件）</a><br><a href="http://www.cnblogs.com/ontheway703/p/5282305.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/ontheway703/p/5282305.html" title="发布于2016-03-16 10:03">Centos 下，配置 Apache + Python + Django + postgresSQL 开发环境</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2016-03-11 15:49</span> <a href="http://www.cnblogs.com/ontheway703/">Lewis-Liu</a> 阅读(<span id="post_view_count">1875</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=5266041" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/ontheway703/p/5266041.html#" onclick="AddToWz(5266041);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=255235,cb_entryId=5266041,cb_blogApp=currentBlogApp,cb_blogUserGuid='b7e9b5b7-0c91-e511-9fc1-ac853d9f53cc',cb_entryCreatedDate='2016/3/11 15:49:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/ontheway703/p/5266041.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/ontheway703/p/5266041.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://www.jiguang.cn/devservice?bky" target="_blank">【推荐】极光开发者服务平台，五大功能一站集齐</a><br><a href="https://dnspod.cloud.tencent.com/act/seckill?fromSource=gwzcw.410370.410370.410370" target="_blank">【推荐】腾讯云域名+云解析 限时折扣抓紧抢购</a><br><a href="http://click.aliyun.com/m/18488/" target="_blank">【推荐】阿里云“全民云计算”优惠升级</a><br><a href="https://cloud.tencent.com/developer/labs?fromSource=gwzcw.330910.330910.330910" target="_blank">【推荐】一小时搭建人工智能应用，让技术更容易入门</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://cn.udacity.com/mlnd/?utm_source=cnblogs&amp;utm_medium=banner&amp;utm_campaign=MLND06" target="_blank"><img width="300" height="250" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/24442-20170816053533459-1918329004.png" alt="Udacity08.15 - 08.22"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/576835/" target="_blank">今年底开始 Intel新CPU将集成Wi-Fi：所有PC标配无线</a><br> ·  <a href="http://news.cnblogs.com/n/576837/" target="_blank">小米手机正式登陆泰国：首发米6/红米Note 4</a><br> ·  <a href="http://news.cnblogs.com/n/576836/" target="_blank">俞敏洪：唯有远见和努力方能成就你的事业</a><br> ·  <a href="http://news.cnblogs.com/n/576827/" target="_blank">这家公司只有一名员工，却做出了16款温暖人心的无厘头游戏</a><br> ·  <a href="http://news.cnblogs.com/n/576834/" target="_blank">美图公布2017年上半年业绩 毛利同比大增484.4%</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="https://www.jiguang.cn/devservice?source=bky&amp;hmsr=%E5%8D%9A%E5%AE%A2%E5%9B%AD&amp;hmpl=&amp;hmcu=&amp;hmkw=&amp;hmci=" target="_blank"><img width="468" height="60" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/24442-20170727100914671-839522651.gif" alt="极光0801"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/575829/" target="_blank">做到这一点，你也可以成为优秀的程序员</a><br> ·  <a href="http://kb.cnblogs.com/page/566880/" target="_blank">写给立志做码农的大学生</a><br> ·  <a href="http://kb.cnblogs.com/page/569057/" target="_blank">架构腐化之谜</a><br> ·  <a href="http://kb.cnblogs.com/page/572854/" target="_blank">学会思考，而不只是编程</a><br> ·  <a href="http://kb.cnblogs.com/page/574767/" target="_blank">编写Shell脚本的最佳实践</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/ontheway703/">Lewis-Liu</a><br>园龄：<a href="http://home.cnblogs.com/u/ontheway703/" title="入园时间：2015-11-22">1年9个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/ontheway703/followers/">0</a><br>关注：<a href="http://home.cnblogs.com/u/ontheway703/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;b7e9b5b7-0c91-e511-9fc1-ac853d9f53cc&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/07/01&#39;);return false;">&lt;</a></td><td align="center">2017年8月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/09/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td class="CalWeekendDay" align="center">5</td></tr><tr><td class="CalWeekendDay" align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td class="CalWeekendDay" align="center">12</td></tr><tr><td class="CalWeekendDay" align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td class="CalWeekendDay" align="center">19</td></tr><tr><td class="CalWeekendDay" align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td class="CalTodayDay" align="center">24</td><td align="center">25</td><td class="CalWeekendDay" align="center">26</td></tr><tr><td class="CalWeekendDay" align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td></tr><tr><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/ontheway703/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/ontheway703/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/ontheway703/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/ontheway703/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/ontheway703/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/ontheway703/archive/2016/03.html">2016年3月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/ontheway703/archive/2015/11.html">2015年11月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/ontheway703/p/4986804.html#3453019">1. Re:一步步疑难解析 —— Python 异步编程构建博客</a></li>
+        <li class="recent_comment_body">你写的是对我来说最好的分析解惑，实在是希望博主能把廖雪峰的下面几篇也一一解析说明一下，那就是太好了</li>
+        <li class="recent_comment_author">--无才不肖生</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/ontheway703/p/5247234.html">1. CentOS7下，安装网卡驱动，命令行手动连接WIFI指导(3067)</a></li><li><a href="http://www.cnblogs.com/ontheway703/p/5266041.html">2. 用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件(1875)</a></li><li><a href="http://www.cnblogs.com/ontheway703/p/5264517.html">3. 用 python 来操作 docx， xlsx 格式文件（一）（使用 xlsxwriter 库操作xlsx格式文件）(746)</a></li><li><a href="http://www.cnblogs.com/ontheway703/p/4986804.html">4. 一步步疑难解析 —— Python 异步编程构建博客(240)</a></li><li><a href="http://www.cnblogs.com/ontheway703/p/5282305.html">5. Centos 下，配置 Apache + Python + Django + postgresSQL 开发环境(91)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/ontheway703/p/4986804.html">1. 一步步疑难解析 —— Python 异步编程构建博客(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/ontheway703/p/4986804.html">1. 一步步疑难解析 —— Python 异步编程构建博客(1)</a></li><li><a href="http://www.cnblogs.com/ontheway703/p/5266041.html">2. 用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2017 Lewis-Liu
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<div class="sogoutip" style="z-index: 2147483645; visibility: hidden; display: none;"></div><div class="sogoubottom" id="sougou_bottom" style="display: none;"></div><div id="ext_stophi" style="z-index: 2147483647;"><div class="extnoticebg"></div><div class="extnotice"><h2>关闭提示 <a href="http://www.cnblogs.com/ontheway703/p/5266041.html#" title="关闭提示" id="closenotice" class="closenotice">关闭</a></h2><p id="sogouconfirmtxt"></p>  <a id="sogouconfirm" href="http://www.cnblogs.com/ontheway703/p/5266041.html#" class="extconfirm">确 认</a> <a id="sogoucancel" href="http://www.cnblogs.com/ontheway703/p/5266041.html#" class="extconfirm">取 消</a></div></div><div id="ext_overlay" class="ext_overlayBG" style="display: none; z-index: 2147483646;"></div><iframe class="sogou_sugg_feedbackquan" frameborder="0" scrolling="no" src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/yun6.html" style="border: none; display: none; height: 84px; width: 100%; z-index: 2147483645; background: transparent;"></iframe><div id="ydNoteWebClipper" style="position: fixed; right: 10px; top: 10px; padding-bottom: 10px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: 100%; font-family: arial, sans-serif; color: rgb(51, 51, 51); z-index: 2147483647 !important; display: block; width: 300px;"><div id="ydNoteWebClipper-New" class="ydnwc-dialog" style="width: 292px;"><div id="ydNoteWebClipper_view" style="height: 220px; width: 290px;"><iframe width="100%" height="100%" border="0" frameborder="0" src="javascript:document.write(&#39;&#39;);" style="width:100%;height:100%;border:0px;display: block!important;" id="_YNoteContentFrame" name="2ContentFrame" onload="yApp.frameHandler(event);" scrolling="no"></iframe></div><div id="ydNoteWebClipper_loadview" style="position: absolute; height: 258px; top: 0px; left: 200px; display: none; background: rgb(255, 255, 255);"><img src="./用 python 来操作 docx， xlsx 格式文件（二）（使用 docx 库操作 docx 格式文件 - Lewis-Liu - 博客园_files/loading.gif" style="position: absolute;top: 20%;margin-left: -65px;"></div></div><div style="display: none;"><form id="_YNoteContentForm" name="_YNoteContentForm" action="http://note.youdao.com/yws/mapi/wcp?method=putfile&amp;keyfrom=wcp" target="2ContentFrame" enctype="multipart/form-data" method="POST"><input type="text" name="tl" id="_YNoteContentFormtitle" value=""><input type="text" name="p" id="_YNoteContentFormpath" value=""><textarea name="bs" id="_YNoteContentFormcontent"></textarea><input type="text" name="src" id="_YNoteContentFormsource" value=""><input type="text" name="type" id="_YNoteContentFormtype" value=""><input type="text" name="userid" id="_YNoteContentFormuserid" value=""><input type="text" name="len" id="_YNoteContentFormlen" value=""><input type="text" name="cs" id="_YNoteContentFormcharset" value=""><input type="text" name="e" id="_YNoteContentFormsign" value=""></form></div></div></body></html>
